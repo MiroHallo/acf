@@ -1,4 +1,4 @@
-# acf
+# ACF and SACF
 Approximate covariance matrix of Green's functions
 ***************************************
 
