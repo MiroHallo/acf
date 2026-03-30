@@ -1,5 +1,5 @@
-# ACF and SACF
-Approximate covariance matrix of Green's functions
+# Uncertainty quantification in earthquake source inversions
+Approximate covariance matrix of Green's functions for uncertainty quantification in earthquake source inversions
 ***************************************
 
   Open-source functions for determining the (cross-)covariance matrix
@@ -13,34 +13,39 @@ are distributed with an intuitive example, and return the full
 
   Hallo, M., Gallovič, F. (2016). Fast and cheap approximation of Green
 functions uncertainty for waveform-based earthquake source inversions,
-Geophys. J. Int., 207, 1012-1029.
+Geophys. J. Int., 207, 1012-1029. [https://doi.org/10.1093/gji/ggw320](https://doi.org/10.1093/gji/ggw320)
 
-2 PACKAGE CONTENT
+2 TECHNICAL IMPLEMENTATION
 ===================
 
-  a) "axcf.m" - Matlab function for the (cross-)covariance matrix by
-  approximate covariance function (ACF, AXCF)
-  
-  b) "saxcf.m" - Matlab function for the (cross-)covariance matrix by
-  stationarized covariance function (SACF, SAXCF)
-  
-  c) "example.m" - Example of Matlab code using these functions
-  
-  d) "approxc.f90" - Fortran subroutines for determining the
+Fourier Transform (complex numbers), Cross-Platform (Windows, Linux)
+
+3 PACKAGE CONTENT
+===================
+
+  a) "approxc.f90" - Fortran subroutines for determining the
   (cross-)covariance matrix by (stationarized) approximate covariance
   function (AXCF, SAXCF)
+  
+  b) "axcf.m" - Matlab function for the (cross-)covariance matrix by
+  approximate covariance function (ACF, AXCF)
+  
+  c) "saxcf.m" - Matlab function for the (cross-)covariance matrix by
+  stationarized covariance function (SACF, SAXCF)
+  
+  d) "example.m" - Example of Matlab code using these functions
 
-3 REQUIREMENTS
+4 REQUIREMENTS
 ===================
-
-  MATLAB: "smooth" function from Matlab Curve Fitting Toolbox, and
-"filtfilt" function from Matlab Signal Processing Toolbox.
 
   FORTRAN: Codes should fulfill Fortran 90 Standard. The codes were
 successfully compiled by GFortran (GCC) and ifort (Intel) compilers on
 Ubuntu 14 operation system.
 
-4 COPYRIGHT
+  MATLAB: Version R2016b, "smooth" function from Matlab Curve Fitting Toolbox, and
+"filtfilt" function from Matlab Signal Processing Toolbox.
+
+5 COPYRIGHT
 ===================
 
 Copyright (C) 2016-2018  Miroslav Hallo and František Gallovič
