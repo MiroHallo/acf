@@ -1,18 +1,27 @@
 {
-  "title": "Approximate covariance matrix of Green's functions for uncertainty quantification in earthquake source inversions",
+  "metadata": {
+  "title": "Approximate covariance matrix of Green's functions for uncertainty quantification in Bayesian earthquake source inversions",
   "description": "Codes for computation of approximate covariance functions (ACF) and stationarized approximate covariance functions (SACF) of Green's functions for uncertainty quantification in Bayesian earthquake source inversions.",
   "creators": [
     {
       "name": "Hallo, Miroslav",
       "affiliation": "Charles University", 
-	  "orcid": "0000-0001-5865-7767"
+      "orcid": "0000-0001-5865-7767"
     }
   ],
   "access_right": "open",
   "license": "GPL-3.0-or-later",
   "keywords": ["Bayesian Inference", "Uncertainty Quantification", "Seismology", "Earthquake", "Earthquake Source", "Covariance", "Green's Functions"],
-  "resource_type": {
-    "type": "software",
-    "title": "Software"
+  "related_identifiers": [
+    {
+      "scheme": "doi",
+      "identifier": "10.1093/gji/ggw320",
+      "relation": "isSupplementTo",
+    }
+  ],
+  "version": "v1.0",
+  "publication_date": "2018-01-16",
+  "language": "eng",
+  "upload_type": "software"
   }
 }
