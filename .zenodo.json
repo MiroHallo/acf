@@ -16,7 +16,7 @@
     {
       "scheme": "doi",
       "identifier": "10.1093/gji/ggw320",
-      "relation": "isSupplementTo",
+      "relation": "isSupplementTo"
     }
   ],
   "version": "v1.0",
