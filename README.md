@@ -1,5 +1,5 @@
-# Uncertainty quantification in earthquake source inversions
-Approximate covariance matrix of Green's functions for uncertainty quantification in earthquake source inversions
+# Uncertainty quantification in Bayesian earthquake source inversions
+Approximate covariance matrix of Green's functions for uncertainty quantification in Bayesian earthquake source inversions
 ***************************************
 
   Open-source functions for determining the (cross-)covariance matrix
@@ -18,7 +18,7 @@ Geophys. J. Int., 207, 1012-1029. [https://doi.org/10.1093/gji/ggw320](https://d
 2 TECHNICAL IMPLEMENTATION
 ===================
 
-Fourier Transform (complex numbers), Cross-Platform (Windows, Linux)
+Fourier Transform (complex numbers), Fortran90, Cross-Platform (Windows, Linux)
 
 3 PACKAGE CONTENT
 ===================
