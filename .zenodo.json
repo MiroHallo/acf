@@ -1,6 +1,6 @@
 {
   "metadata": {
-  "title": "Uncertainty quantification in Bayesian earthquake source inversions",
+  "title": "Uncertainty quantification in Bayesian earthquake source inversions (HPC ready)",
   "description": "Fortran90 and MATLAB toolset for evaluation of the covariance (and cross-covariance) matrices of Green's functions. It is specifically designed as a high-performance toolset to efficiently handle model uncertainties in Bayesian waveform-based earthquake source inversions. It features a dual-language implementation to balance computational power (Fortran90) with ease of testing and visualization (MATLAB).",
   "creators": [
     {
