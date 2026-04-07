@@ -1,12 +1,18 @@
-# Uncertainty quantification in Bayesian earthquake source inversions
-Approximate covariance matrix of Green's functions for uncertainty quantification in Bayesian earthquake source inversions
+# Uncertainty quantification in HPC Bayesian earthquake source inversions
+Toolset for evaluating approximate covariance matrices of Green's functions for uncertainty quantification in Bayesian earthquake source inversions.
 ***************************************
 
-  Open-source functions for determining the (cross-)covariance matrix
-of Green's functions by approximate covariance function (ACF, AXCF) and
-stationarized approximate covariance function (SACF, SAXCF). Functions
-are distributed with an intuitive example, and return the full
-(cross-)covariance matrices.
+This repository provides a Fortran90 and MATLAB toolset for evaluation of the 
+covariance (and cross-covariance) matrices of Green's functions. It is 
+specifically designed as a high-performance toolset to efficiently handle 
+model uncertainties in Bayesian waveform-based earthquake source inversions. 
+It features a dual-language implementation to balance computational power 
+(Fortran90) with ease of testing and visualization (MATLAB). List of four 
+types of methods implemented in this package:
+*   Approximate Covariance Function (ACF)
+*   Approximate Cross-covariance Function (AXCF)
+*   Stationarized Approximate Covariance Function (SACF)
+*   Stationarized Approximate Cross-covariance Function (SAXCF)
 
 1 METHODOLOGY
 ===================
@@ -18,33 +24,27 @@ Geophys. J. Int., 207, 1012-1029. [https://doi.org/10.1093/gji/ggw320](https://d
 2 TECHNICAL IMPLEMENTATION
 ===================
 
-Fourier Transform (complex numbers), Fortran 90, Cross-Platform (Windows, Linux)
+Fortran90, High Performance Computing (HPC), Fourier Transform, Cross-Platform (Windows, Linux)
 
-The official software version is archived on Zenodo:
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19343279.svg)](https://doi.org/10.5281/zenodo.19343279)
+*   **High Performance:** Core routines implemented in Fortran90 for efficient evaluation of large covariance and cross-covariance matrices.
+*   **Dual-Language Implementation:** Fortran90 functions are supplemented with respective MATLAB functions, using identical mathematical logic for seamless testing and prototyping.
+*   **Efficient Uncertainty Quantification:** Specifically optimized for handling model uncertainties in Bayesian source inversion frameworks.
+*   **Full Matrix Output:** The toolset returns complete covariance structures ready for integration into inverse solvers.
 
 3 PACKAGE CONTENT
 ===================
 
-  a) "approxc.f90" - Fortran subroutines for determining the
-  (cross-)covariance matrix by (stationarized) approximate covariance
-  function (AXCF, SAXCF)
-  
-  b) "axcf.m" - Matlab function for the (cross-)covariance matrix by
-  approximate covariance function (ACF, AXCF)
-  
-  c) "saxcf.m" - Matlab function for the (cross-)covariance matrix by
-  stationarized covariance function (SACF, SAXCF)
-  
-  d) "example.m" - Example of Matlab code using these functions
+  1. `approxc.f90` - Fortran90 subroutines for determining covariance matrices (ACF, AXCF, SACF, SAXCF)
+  2. `axcf.m` - MATLAB function for determining covariance matrices (ACF, AXCF)
+  3. `saxcf.m` - MATLAB function for determining stationarized covariance matrices (SACF, SAXCF)
+  4. `example.m` - Example of MATLAB code using these functions
 
 4 REQUIREMENTS
 ===================
 
   FORTRAN: Codes should fulfill Fortran 90 Standard. The codes were
 successfully compiled by GFortran (GCC) and ifort (Intel) compilers on
-Ubuntu 14 operation system.
+Linux-based systems.
 
   MATLAB: Version R2016b, "smooth" function from Matlab Curve Fitting Toolbox, and
 "filtfilt" function from Matlab Signal Processing Toolbox.
