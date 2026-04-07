@@ -1,7 +1,7 @@
 {
   "metadata": {
-  "title": "Approximate covariance matrix of Green's functions for uncertainty quantification in Bayesian earthquake source inversions",
-  "description": "Codes for computation of approximate covariance functions (ACF) and stationarized approximate covariance functions (SACF) of Green's functions for uncertainty quantification in Bayesian earthquake source inversions.",
+  "title": "Uncertainty quantification in Bayesian earthquake source inversions",
+  "description": "Fortran90 and MATLAB toolset for evaluation of the covariance (and cross-covariance) matrices of Green's functions. It is specifically designed as a high-performance toolset to efficiently handle model uncertainties in Bayesian waveform-based earthquake source inversions. It features a dual-language implementation to balance computational power (Fortran90) with ease of testing and visualization (MATLAB).",
   "creators": [
     {
       "name": "Hallo, Miroslav",
@@ -10,18 +10,15 @@
     }
   ],
   "access_right": "open",
-  "license": "GPL-3.0-or-later",
-  "keywords": ["Bayesian Inference", "Uncertainty Quantification", "Seismology", "Earthquake", "Earthquake Source", "Covariance", "Green's Functions"],
+  "license": "gpl-3.0",
+  "keywords": ["Bayesian Inference", "Uncertainty Quantification", "Seismology", "Earthquake", "Earthquake Source", "Covariance", "Green's Functions", "High Performance Computing"],
   "related_identifiers": [
     {
       "scheme": "doi",
       "identifier": "10.1093/gji/ggw320",
       "relation": "isSupplementTo"
-      "resource_type": "publication-article"
     }
   ],
-  "version": "v1.0",
-  "publication_date": "2018-01-16",
   "language": "eng",
   "upload_type": "software"
   }
