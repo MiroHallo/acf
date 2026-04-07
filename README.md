@@ -46,13 +46,11 @@ The official software version is archived on Zenodo:
 4 REQUIREMENTS
 ===================
 
-  FORTRAN: Codes should fulfill Fortran 90 Standard. The codes were
-successfully compiled by GFortran (GCC) and ifort (Intel) compilers on
-Linux-based systems.
+  FORTRAN: Codes fulfill Fortran 90 Standard (Modern Fortran).
 
   MATLAB: Version R2016b
   
-  Matlab Toolboxes: Matlab Curve Fitting Toolbox (`smooth.m`), Matlab Signal Processing Toolbox (`filtfilt.m`)
+  MATLAB Toolboxes: Matlab Curve Fitting Toolbox (`smooth.m`), Matlab Signal Processing Toolbox (`filtfilt.m`)
 
 5 COPYRIGHT
 ===================
