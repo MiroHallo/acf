@@ -31,6 +31,10 @@ Fortran90, High Performance Computing (HPC), Fourier Transform, Cross-Platform (
 *   **Efficient Uncertainty Quantification:** Specifically optimized for handling model uncertainties in Bayesian source inversion frameworks.
 *   **Full Matrix Output:** The toolset returns complete covariance structures ready for integration into inverse solvers.
 
+The official software version is archived on Zenodo:
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19343279.svg)](https://doi.org/10.5281/zenodo.19343279)
+
 3 PACKAGE CONTENT
 ===================
 
@@ -46,8 +50,9 @@ Fortran90, High Performance Computing (HPC), Fourier Transform, Cross-Platform (
 successfully compiled by GFortran (GCC) and ifort (Intel) compilers on
 Linux-based systems.
 
-  MATLAB: Version R2016b, "smooth" function from Matlab Curve Fitting Toolbox, and
-"filtfilt" function from Matlab Signal Processing Toolbox.
+  MATLAB: Version R2016b
+  
+  Matlab Toolboxes: Matlab Curve Fitting Toolbox (`smooth.m`), Matlab Signal Processing Toolbox (`filtfilt.m`)
 
 5 COPYRIGHT
 ===================
