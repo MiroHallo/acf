@@ -1,5 +1,5 @@
-# Uncertainty quantification in HPC Bayesian earthquake source inversions
-Toolset for evaluating approximate covariance matrices of Green's functions for uncertainty quantification in Bayesian earthquake source inversions.
+# Uncertainty quantification in Bayesian earthquake source inversions (HPC)
+Toolset for evaluating approximate covariance matrices of Green's functions for uncertainty quantification in Bayesian earthquake source inversions (High Performance Computing ready).
 ***************************************
 
 This repository provides a Fortran90 and MATLAB toolset for evaluation of the 
