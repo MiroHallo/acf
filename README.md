@@ -48,7 +48,7 @@ The official software version is archived on Zenodo:
 
   FORTRAN: Codes fulfill Fortran 90 Standard (Modern Fortran).
 
-  MATLAB: Version R2016b
+  MATLAB: Version R2025b
   
   MATLAB Toolboxes: Matlab Curve Fitting Toolbox (`smooth.m`), Matlab Signal Processing Toolbox (`filtfilt.m`)
 
