@@ -1,16 +1,26 @@
 function C = axcf(varargin)
+% AXCF Returns covariance matrix by Approximate Covariance Functions (ACF or AXCF)
 %
-% Matlab function for determining the (cross-)covariance matrix by
-% approximate (cross-)covariance function (AXCF or ACF) (Hallo and Gallovic, 2016).
-% Hallo, M., Gallovic, F. (2016): Fast and cheap approximation of Green functions
-% uncertainty for waveform-based earthquake source inversions, Geophys. J. Int., 207, 1012-1029.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% Returns Auto-Covariance matrix by Approximate Covariance Function (ACF) or  
+% Cross-covariance matrix by Approximate Cross-covariance Function (AXCF)
 %
-% Authors: Miroslav Hallo and Frantisek Gallovic (1/2016)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Author: Miroslav HALLO, František GALLOVIC
 % Charles University in Prague, Faculty of Mathematics and Physics
-% Revision 1/2018: Corrected inserting ("zero") values before and
-%                  after signal for real signals
+% E-mail: hallo@karel.troja.mff.cuni.cz
+% Revision 2016/01: First version
+% Revision 2018/01: Corrected by inserting zeros before and after the signal
+% Revision 2026/04: Updated for new Matlab version
+% Tested in Matlab R2025b
+% Method:
+% Hallo, M., Gallovic, F. (2016): Fast and cheap approximation of Green 
+%      functions uncertainty for waveform-based earthquake source inversions,
+%      Geophys. J. Int., 207 1012-1029. https://doi.org/10.1093/gji/ggw320
 %
-% Copyright (C) 2016,2018  Miroslav Hallo and František Gallovič
+% Copyright (C) 2016-2018 Miroslav Hallo and František Gallovič
 %
 % This program is published under the GNU General Public License (GNU GPL).
 %
@@ -25,30 +35,29 @@ function C = axcf(varargin)
 %
 % You should have received copy of the GNU General Public License along
 % with this program. If not, see <http://www.gnu.org/licenses/>.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% REQUIREMENTS:
 %
-% -------------------------------------------
+% smooth (MatLab Curve Fitting Toolbox)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % INPUT:
 % f - First input signal (vector)
 % g - Second input signal (vector)
-% L1 - Width of the joint uniform distribution of time-shifts [sec] (scalar)
-% L12 - Width of the relative uniform distribution of time-shifts [sec] (scalar)
-% dt - Signal sampling [sec] (scalar)
-% -------------------------------------------
-%
+% L1 - Width of the joint uniform distribution of time-shifts [s] (scalar)
+% L12 - Width of the relative uniform distribution of time-shifts [s] (scalar)
+% dt - Signal sampling [s] (scalar)
+% 
 % OUTPUT:
-% C - (cross-)covariance matrix (2D matrix)
-% -------------------------------------------
+% C - (Cross-)covariance matrix (2D matrix)
 %
 % EXAMPLES:
-% axcf(f,L1,dt) - Compute auto-covariance matrix of f
-% axcf(f,g,L1,L12,dt) - Compute cross-covariance matrix of f and g
-% -------------------------------------------
+% axcf(f, L1, dt) - Compute auto-covariance matrix from f
+% axcf(f, g, L1, L12, dt) - Compute cross-covariance matrix from f and g
 %
-% REQUIREMENTS:
-% smooth (MatLab Curve Fitting Toolbox)
-% -------------------------------------------
-% -------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Manage input arguments
 if nargin == 5   % cross-covariance
@@ -74,16 +83,16 @@ nsampl = length(f);
 
 % Check the size of the final covariance matrix
 if nsampl > 22360
-    display('axcf: The covariance matrix require more than 4GB of memory');
+    disp('axcf: Covariance matrix require more than 4GB of memory');
 elseif nsampl > 11180
-    display('axcf: The covariance matrix require more than 1GB of memory');
+    disp('axcf: Covariance matrix require more than 1GB of memory');
 elseif nsampl > 5590
-    display('axcf: The covariance matrix require more than 250MB of memory');
+    disp('axcf: Covariance matrix require more than 250MB of memory');
 end
 
 % Check the length and preallocate output C matrix
 if nsampl ~= length(g)
-    error('axcf: Signals f ang g have to have the same length');
+    error('axcf: Signals f ang g must have the same length');
 else
     C = zeros(nsampl);
 end
@@ -92,7 +101,7 @@ end
 L1s = ceil(L1/dt);
 if L1s < 3
     L1s = 3;
-    display(['axcf: L1 changed to the minimum allowed value: ',num2str(L1s*dt),' [s]'])
+    disp(['axcf: L1 changed to the minimum allowed value: ',num2str(L1s*dt),' (s)'])
 end
 L12s = max(ceil(L12/dt),1);
 
@@ -105,8 +114,8 @@ g = [zeros(Lzeros,1)+g(1); g(:); zeros(Lzeros,1)+g(end)];
 nsamplN = nsampl + 2*Lzeros;
 
 % Smooth f and g signals
-fSmooth = smooth(f,L1s,'moving');
-gSmooth = smooth(g,L12s,'moving');
+fSmooth = smooth(f, L1s, 'moving');
+gSmooth = smooth(g, L12s, 'moving');
 
 % Compute ACF for time-lags
 ACF = zeros(nsamplN,nsamplN*2);
@@ -131,8 +140,8 @@ if isequal(f,g) % only auto-covariance
         Cm = triu(ones(nsampl));
         C = C.*Cm;
         C = C + tril(C.',-1);
-        %display('xacf: The covariance matrix was symmetrized')
+        % disp('axcf: The covariance matrix was symmetrized')
     end
 end
 
-return
+end
