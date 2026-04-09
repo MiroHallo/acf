@@ -34,6 +34,18 @@
 PROGRAM run_example
 !---------------------------------------------------------------------
 !  Main program
+!
+!  INPUT FILE FORMAT (e.g., example_data.txt):
+!  - Plain text file with two columns (real numbers)
+!  - Columns represent functions f(t) and g(t) respectively
+!  - Lines starting with '#' or empty lines are skipped
+!  - Number of data rows determines the matrix size (N x N)
+!
+!  OUTPUT FILE FORMAT (e.g., example_ACF.txt):
+!  - Space-separated square matrix of size N x N
+!  - Scientific notation (e14.6)
+!  - Row-major order (each line in text file is one matrix row)
+!
 !---------------------------------------------------------------------
     use ApproxCovMod
     implicit none
