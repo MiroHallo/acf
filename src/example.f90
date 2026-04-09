@@ -58,16 +58,22 @@ PROGRAM run_example
     
     !----------------------------------
     ! Code INPUT
-	
-	! Filename of the text file with input f(t) and g(t) functions
+    
+    ! Filename of the text file with input f(t) and g(t) functions
     infile = 'example_data.txt'
-	! Sample interval dt [s]
+    
+    ! Sample interval dt [s]
     dt = 0.1d0
-	! Width of joint (f and g) uniform distribution of time-shifts [s]
+    
+    ! Width of joint (f and g) uniform distribution of time-shifts [s]
     L1_sec = 2.0d0
-	! Width of relative (f vs g) uniform distribution of time-shifts [s]
+    
+    ! Width of relative (f vs g) uniform distribution of time-shifts [s]
+    ! Note, it must be 0 for auto-covariance matrices -> In that case it 
+    !       is better to parse 0 directly to axcf and saxcf subroutines
     L12_sec = 1.0d0
-	! Dominant signal length  [s]
+    
+    ! Dominant signal length  [s]
     T_sec = 10.0d0
     
     !----------------------------------
@@ -119,6 +125,10 @@ PROGRAM run_example
     close(10)
     
     !----------------------------------
+    ! COMPUTATION: Approximate covariance matrices
+    ! Subroutines are part of the ApproxCovMod module
+    
+    !----------------------------------
     ! Compute ACF
     call axcf(nsampl,f,f,L1,0,C(:,:,1))
     
@@ -135,6 +145,10 @@ PROGRAM run_example
     call saxcf(nsampl,f,g,L1,L12,T,C(:,:,4))
     
     !----------------------------------
+    ! DATA EXPORT: Save matrices to text files
+    ! Each matrix is saved as a square table N x N
+    
+    !----------------------------------
     ! Save ACF to file
     fid = 101
     open(newunit=fid,form='formatted',file='example_ACF.txt',status='replace')
@@ -145,8 +159,8 @@ PROGRAM run_example
       write(fid, *)
     enddo
     close(fid)
-	
-	!----------------------------------
+    
+    !----------------------------------
     ! Save AXCF to file
     fid = 102
     open(newunit=fid,form='formatted',file='example_AXCF.txt',status='replace')
@@ -157,8 +171,8 @@ PROGRAM run_example
       write(fid, *)
     enddo
     close(fid)
-	
-	!----------------------------------
+    
+    !----------------------------------
     ! Save ACF to file
     fid = 103
     open(newunit=fid,form='formatted',file='example_SACF.txt',status='replace')
@@ -169,8 +183,8 @@ PROGRAM run_example
       write(fid, *)
     enddo
     close(fid)
-	
-	!----------------------------------
+    
+    !----------------------------------
     ! Save ACF to file
     fid = 104
     open(newunit=fid,form='formatted',file='example_SAXCF.txt',status='replace')
