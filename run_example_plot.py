@@ -86,7 +86,9 @@ def plot_covariance_matrices(n, dt, files, titles, output='output.png'):
     for i, (ax, file, title) in enumerate(zip(axs.flat, files, titles)):
         try:
             data = np.loadtxt(file)
-            im = ax.imshow(data, extent=[t[0], t[-1], t[-1], t[0]], cmap='RdBu_r')
+            limit = np.max(np.abs(data))
+            im = ax.imshow(data, extent=[t[0], t[-1], t[-1], t[0]],
+                           cmap='RdBu_r', vmin=-limit, vmax=limit)
             ax.set_title(title, fontweight='normal')
             ax.set_xlabel('Time (s)')
             ax.set_ylabel('Time (s)')
