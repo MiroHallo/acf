@@ -104,7 +104,7 @@ This repository provides Fortran 90 and MATLAB routines for evaluating covarianc
 8 COPYRIGHT
 ===================
 
-Copyright (C) 2016-2018  Miroslav Hallo and František Gallovič
+Copyright (C) 2016-2018,2026  Miroslav Hallo and František Gallovič
 
 This program is published under the GNU General Public License (GNU GPL).
 
