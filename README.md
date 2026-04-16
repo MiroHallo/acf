@@ -24,7 +24,9 @@ Geophys. J. Int., 207, 1012-1029. [https://doi.org/10.1093/gji/ggw320](https://d
 2 TECHNICAL IMPLEMENTATION
 ===================
 
-Fortran90, High Performance Computing (HPC), Fourier Transform, Cross-Platform (Windows, Linux)
+[![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
+
+Fortran90, High Performance Computing (HPC), Fourier Transform, Cross-Platform (Windows, Linux, macOS)
 
 *   **High Performance:** Core routines implemented in Fortran90 for efficient evaluation of large covariance and cross-covariance matrices.
 *   **Dual-Language Implementation:** Fortran90 functions are supplemented with respective MATLAB functions, using identical mathematical logic for seamless testing and prototyping.

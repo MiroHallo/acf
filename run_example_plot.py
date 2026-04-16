@@ -1,36 +1,37 @@
 #!/usr/bin/env python3
 # =============================================================================
 # PLOT COVARIANCE MATRICES FROM FORTRAN PROGRAM RUN_EXAMPLE
-# 
+#
 # Author: Miroslav HALLO, Kyoto University
 # E-mail: hallo.miroslav.2a@kyoto-u.ac.jp
 # Revision 2026/04: First version
 # Tested with: Python 3.12.3, Matplotlib 3.10.8, NumPy 2.4.4
 # Method:
-# Hallo, M., Gallovic, F. (2016): Fast and cheap approximation of Green 
+# Hallo, M., Gallovic, F. (2016): Fast and cheap approximation of Green
 #      functions uncertainty for waveform-based earthquake source inversions,
 #      Geophys. J. Int., 207 1012-1029. https://doi.org/10.1093/gji/ggw320
-# 
+#
 # Copyright (C) 2026 Miroslav Hallo
-# 
+#
 # This program is published under the GNU General Public License (GNU GPL).
-# 
+#
 # This program is free software: you can modify it and/or redistribute it
 # or any derivative version under the terms of the GNU General Public
 # License as published by the Free Software Foundation, either version 3
 # of the License, or (at your option) any later version.
-# 
+#
 # This code is distributed in the hope that it will be useful, but WITHOUT
 # ANY WARRANTY. We would like to kindly ask you to acknowledge the authors
 # and don't remove their names from the code.
-# 
+#
 # You should have received copy of the GNU General Public License along
 # with this program. If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # =============================================================================
 
 import numpy as np
 import matplotlib.pyplot as plt
+
 
 # =============================================================================
 # INPUT PARAMETERS
@@ -43,16 +44,17 @@ N = 200
 DT = 0.1
 
 # List of input files with covariance matrices (from Fortran run_example)
-INPUTS = ['example_ACF.txt', 'example_AXCF.txt', 
-         'example_SACF.txt', 'example_SAXCF.txt']
+INPUTS = ['example_ACF.txt', 'example_AXCF.txt',
+          'example_SACF.txt', 'example_SAXCF.txt']
 
 # List of titles for covariance matrices
-TITLES = ['Cov. matrix by ACF', 'Cross-cov. matrix by AXCF', 
-         'Cov. matrix by SACF', 'Cross-cov. matrix by SAXCF']
-         
+TITLES = ['Cov. matrix by ACF', 'Cross-cov. matrix by AXCF',
+          'Cov. matrix by SACF', 'Cross-cov. matrix by SAXCF']
+
 # Output filename
 OUTPUT = 'example_Fortran.png'
-               
+
+
 # =============================================================================
 # FUNCTIONS
 # =============================================================================
@@ -98,7 +100,7 @@ def plot_covariance_matrices(n, dt, files, titles, output='output.png'):
             print(f"Error during reading {file}: {e}")
 
     plt.tight_layout()
-    
+
     # Save figure
     plt.savefig(output, dpi=300)
     plt.close()
@@ -116,7 +118,7 @@ def main():
     - Save results into the OUTPUT.
     """
     print("-" * 50)
-    
+
     print("[*] Plot covariance matrices")
     plot_covariance_matrices(N, DT, INPUTS, TITLES, OUTPUT)
 
